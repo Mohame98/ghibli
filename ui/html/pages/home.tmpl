@@ -1,0 +1,113 @@
+{{ define "home" }}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <script src="/static/js/main.js" type="module"></script>
+    <title>Ghibli Catalogue</title>
+  </head>
+  <body>
+    <section class="catalogue">
+      <div class="container">
+        <div class="flex">
+          <div class="film-list">
+            <form action="/" method="GET" class="film-form">
+              <div class="left-wrapper">
+                <label>
+                  Search Here:
+                  <div class="search">
+                    <input type="search" name="search" class="search-bar" />
+                    <button class="btn" type="submit">Apply</button>
+                  </div>
+                </label>
+                <label>
+                  <select class="sort" name="sort">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                  </select>
+                </label>
+              </div>
+              <div class="right-wrapper">
+                <strong><p>filter by Director</p></strong>
+                <div class="director">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Hiromasa Yonebayashi"
+                    />
+                    Hiromasa Yonebayashi
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Hayao Miyazaki"
+                    />
+                    Hayao Miyazaki
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Gorō Miyazaki"
+                    />
+                    Gorō Miyazaki
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Isao Takahata"
+                    />
+                    Isao Takahata
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Hiroyuki Morita"
+                    />
+                    Hiroyuki Morita
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Michaël Dudok de Wit"
+                    />
+                    Michaël Dudok de Wit
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="filter"
+                      value="Yoshifumi Kondō"
+                    />
+                    Yoshifumi Kondō
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="display fade-in">
+            <div class="view">
+              {{ range.Films }}
+              <div class="card">
+                <a href="/film/view/{{.Id}}">
+                  <img src="{{.Image}}" alt="Poster for {{.Title}}" />
+                </a>
+                <p>{{ .Title }}</p>
+                <p>By: {{ .Director }}</p>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+{{ end }}

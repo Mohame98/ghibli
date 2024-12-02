@@ -1,0 +1,42 @@
+{{ define "film" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <title>{{ .Title }} — Ghibli Catalogue</title>
+    </head>
+    <body>
+        <section class="film-view">
+            <div class="container">
+                <a href="/">Back</a>
+                <div class="flex">
+                    <div class="film-img">
+                        <img src="{{ .Image }}" alt="Image for {{.Title}}">
+                    </div>
+                    <div class="details">
+                        <h2>Film Details</h2>
+                        <ul>
+                            <li><strong>Title: </strong>{{ .Title }}</li>
+                            <li><strong>Original Title: </strong>{{.OriginalTitle}}</li>
+                            <li><strong>Producer: </strong>{{.Producer}}</li>
+                            <li><strong>Director: </strong>{{.Director}}</li>
+                            <li><strong>ReleaseDate: </strong>{{.ReleaseDate}}</li>
+                            <li><strong>RunningTime: </strong>{{.RunningTime}}</li>
+                        </ul>
+                        <strong>Description:</strong> 
+                        <p>{{ .Description }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="poster">
+            <div class="container">
+                <h2>{{.Title}} Banner</h2>
+                <img src="{{.MovieBanner}}" alt="Banner for {{.Title}}">
+            </div>
+        </section>
+    </body>
+</html>
+{{ end }}
