@@ -39,8 +39,7 @@ body {
 
 .catalogue .btn{
   position: absolute;
-  top: 40px;
-  left: 200px;
+  bottom: 10px;
   border: none;
   background-color: navy;
   color: #fff;
@@ -214,13 +213,13 @@ body {
     gap: 30px;
   }
 
-  .catalogue .display {
-    padding-top: 90px;
+  .catalogue .film-list {
+    height: 400px;
   }
 
   .catalogue form{
     flex-direction: column;
     justify-content: start;
-    height: 350px;
+    height: 400px;
   }
 }
